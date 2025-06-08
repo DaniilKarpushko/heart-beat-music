@@ -1,0 +1,18 @@
+{{!-- collections.hbs --}}
+{{#>layout}}
+  <div id="collectionList" class="list-group p-1 rounded-0">
+    {{#collections}}
+      <div class="list-group-item border-black border-1 collection-list">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1 default-font-size">{{name}}</h5>
+          <button class="styled-btn track-btn default-font-size" style="padding: 1%;" data-id="{{id}}">Tracks</button>
+        </div>
+        <ul class="list-group border-0 tracks-list" style="display: none;">
+        </ul>
+      </div>
+    {{/collections}}
+  </div>
+  <div class="container d-flex w-100 justify-content-center align-items-center">
+    <button id="loadMoreBtn" class="styled-btn default-font-size" style="padding: 1px;" type="button" data-cursor="{{cursor}}">...</button>
+  </div>
+{{/layout}}

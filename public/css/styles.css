@@ -1,0 +1,457 @@
+
+.page-header {
+    top: 0;
+    position: sticky;
+    background-color: darkred;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: rgba(165, 157, 180, 0.79);
+    z-index: 1000;
+}
+
+@media (max-width: 430px) {
+    .default-font-size {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 305px) {
+    .default-font-size {
+        font-size: 5px;
+    }
+}
+
+
+#page-name {
+    text-align: center;
+    color: white;
+    font-family: "Cascadia Mono", cursive;
+}
+
+.page-main-block {
+    margin-top: 2%;
+    background-color: rgba(152, 52, 57, 0.75);
+    border: 2px solid rgba(165, 157, 180, 0.79);
+    font-family: "Cascadia Mono", cursive;
+}
+
+.nav-menu-visual {
+    background-color: darkred;
+    width: 100%;
+    color: black;
+    padding: 0;
+}
+
+nav .nav-page-ref {
+    color: black;
+    transition: .3s;
+}
+
+nav .nav-page-ref:active {
+    background-color: white;
+}
+
+nav .nav-page-ref:hover {
+    background-color: white;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
+.table-container {
+    font-family: "Cascadia Mono", cursive;
+    text-align: center;
+}
+
+.table {
+    display: grid;
+    gap: 1%;
+    margin: 2% auto;
+    max-width: 100%;
+    width: 90%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.table-row {
+    border: black 2px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1.5%;
+}
+
+.table-row:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+.table-row:nth-child(odd) {
+    background-color: rgba(152, 36, 36, 0.76);
+}
+
+.main-news {
+    text-align: center;
+    align-items: center;
+    display: grid;
+    border: 2px solid black;
+}
+
+.news-main-container {
+    margin-left: 2%;
+    margin-right: 2%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: start;
+}
+
+#news-title {
+    margin-top: 0;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.news-container {
+    background-color: rgb(127, 61, 65);
+    width: 100%;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.news-container img {
+    width: 90%;
+    object-fit: fill;
+    border-radius: 5px;
+    margin-top: 2%;
+}
+
+.news-container h4 {
+    text-decoration: underline;
+    margin: 1% 0;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.news-container p {
+    font-size: 0.9em;
+    color: #000000;
+    padding: 1%;
+    text-align: center;
+}
+
+.news-container .buttons {
+    font-family: "Cascadia Mono", cursive;
+    display: flex;
+    justify-content: space-between;
+    max-height: 50%;
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+.preloader {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+    padding: 10px;
+}
+
+.comment-section {
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.comment-section .comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-section .comment-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+#button-news-container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#newsFormContainer input:focus,
+#newsFormContainer textarea:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: black !important;
+}
+#news-description {
+    resize: none;
+}
+
+.main-radio {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.main-radio-player {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+    background-color: rgb(255, 244, 243);
+    max-width: 300px;
+    min-width: 200px;
+    width: 40%;
+    border-radius: 10px;
+    display: grid;
+}
+
+.song-name-header {
+    margin: 0;
+}
+
+.artist-header {
+    margin: 0;
+}
+
+.song-slider {
+    width: 100%;
+    position: relative;
+}
+
+.seek-bar {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 10px;
+    border: black 2px solid;
+    background: #ffffff;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.seek-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1px;
+    height: 20px;
+    box-shadow: -400px 0 0 400px rgba(255, 50, 82, 0.79);
+}
+
+.controls {
+    justify-content: space-around;
+    display: inline-flex;
+    margin-bottom: 3%;
+}
+
+.control-btn {
+    font-family: "Cascadia Mono", cursive;
+    width: 35%;
+    padding: 5%;
+    border-radius: 0;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.control-btn:hover {
+    font-weight: bold;
+}
+
+.control-btn:active {
+    font-weight: bolder;
+    background-color: rgb(255, 244, 243);
+}
+
+footer {
+    padding-bottom: 2%;
+    background-color: rgb(255, 244, 243);
+    font-family: "Cascadia Mono", cursive;
+}
+
+footer aside {
+    float: right;
+    margin-right: 1%;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer__instrument-container {
+    align-items: center;
+    color: black;
+}
+
+.main-gallery {
+    display: grid;
+    object-fit: fill;
+    background-color: black;
+}
+
+.main-gallery-img-container {
+    border-radius: 10px;
+    margin: 2%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-gallery-img-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.auth-box {
+    color: white;
+    background-color: rgba(225, 34, 39, 0.51);
+    border: 2px solid rgba(165, 157, 180, 0.79);
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-box h2 {
+    margin-top: 0;
+    padding: 2%;
+    background-color: darkred;
+}
+
+.auth-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 5%;
+}
+
+.auth-form input {
+    border: none;
+    margin-top: 5px;
+    border-bottom: 1px solid red;
+    transition: all 0.1s ease;
+    background-color: #f3c3c3;
+
+}
+
+.auth-form button {
+    background-color: #f3c3c3;
+    margin-top: 10px;
+    width: 50px;
+    border-radius: 0;
+    border: none;
+    height: 20px;
+}
+
+.auth-form button:hover {
+    cursor: pointer;
+    border-bottom: 2px solid rgb(255, 0, 0);
+}
+
+.auth-form button:active {
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.auth-form input:focus {
+    background-color: #f3c3c3;
+    border-bottom: 2px solid rgb(255, 0, 0);
+    outline: none;
+}
+
+.auth-container {
+    font-family: "Cascadia Mono", cursive;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.favourite-songs__container {
+
+}
+
+.song-item {
+    border: 1px solid black;
+    display: inline-flex;
+    width: 100%;
+    align-items: flex-start;
+    padding: 2%;
+}
+
+.collections-container {
+}
+
+#collections-list ul {
+    margin-right: 16px;
+    padding-left: 0;
+}
+
+.collection {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid black;
+    margin-bottom: 15px;
+    position: relative;
+    background-color: #fff;
+    flex-direction: column; /* Это заставит элементы выстраиваться вертикально */
+}
+
+.collection h2 {
+    margin: 0;
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+.styled-btn {
+    background-color: white;
+    border: 2px solid black;
+    padding: 2% 4%;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.form-input {
+    width: 100%;
+}
+
+.tracks-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+    display: none;
+    width: 100%; /* Убедитесь, что список треков растягивается по ширине контейнера */
+}
+
+.tracks-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.play-btn {
+    background-color: transparent;
+    border: 2px solid black;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}

@@ -1,0 +1,179 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @upper on FIELD_DEFINITION
+
+type AlbumTypeGraphQL {
+  id: Int!
+  title: String!
+  artistId: Int!
+  type: AlbumType!
+  dropDate: DateTime!
+}
+
+enum AlbumType {
+  ALBUM
+  SINGLE
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type CommentType {
+  id: Int!
+  text: String!
+  userId: Int!
+}
+
+"""Артист"""
+type ArtistType {
+  """Уникальный идентификатор артиста"""
+  id: ID!
+
+  """Имя артиста"""
+  name: String!
+
+  """Фамилия артиста"""
+  surname: String!
+
+  """Псевдоним артиста"""
+  nickname: String
+}
+
+type SongType {
+  id: Int!
+  title: String!
+  artistId: Int!
+  albumId: Int!
+  duration: Int!
+  listens: Int!
+  path: String!
+}
+
+type UserType {
+  id: String!
+  nickname: String!
+}
+
+type NewsType {
+  id: Int!
+  writerId: String!
+  header: String!
+  text: String!
+  pictureUrl: String!
+}
+
+type CollectionType {
+  id: Int!
+  name: String!
+  rating: Float!
+}
+
+type CollectionSong {
+  songId: Int!
+  title: String!
+}
+
+type Query {
+  allAlbums(cursor: Int, limit: Int): [AlbumTypeGraphQL!]!
+  topAlbums(amount: Int!): [AlbumTypeGraphQL!]!
+  latestAlbums: [AlbumTypeGraphQL!]!
+  comments(newsId: Int!, cursor: Int = 0, limit: Int = 10): [CommentType!]!
+
+  """Получить топ песен по количеству прослушиваний"""
+  getTop(amount: Int!): [SongType!]!
+
+  """Получить песню по ID"""
+  findOne(id: Int!): SongType!
+
+  """Получить всех артистов с пагинацией"""
+  findAll(cursor: Int = 0, limit: Int = 10): [ArtistType!]!
+
+  """Получить все песни с пагинацией"""
+  getAll(cursor: Int = 0, limit: Int = 10): [SongType!]!
+  news(cursor: Int, limit: Int): [NewsType!]!
+  newsById(id: Int!): NewsType!
+  collections(cursor: Int!, limit: Int!): [CollectionType!]!
+  collection(id: Int!): CollectionType!
+  collectionSongs(id: Int!): [CollectionSong!]!
+}
+
+type Mutation {
+  createAlbum(data: CreateAlbumInput!): AlbumTypeGraphQL!
+  renameAlbum(data: UpdateAlbumTitleInput!): AlbumTypeGraphQL!
+  deleteAlbum(id: Int!): Boolean!
+  createComment(newsId: Int!, userId: String!, text: String!): CommentType!
+  updateComment(id: Int!, userId: String!, text: String!): CommentType!
+  deleteComment(commentId: Int!): Boolean!
+
+  """Создать новую песню"""
+  create(input: CreateSongInput!): SongType!
+
+  """Удалить песню по ID"""
+  delete(id: Int!): SongType!
+
+  """Обновить песню"""
+  update(id: Int!, input: UpdateSongInput!): SongType!
+  createUser(data: CreateUserInput!): UserType!
+  deleteUser(userId: String!): Boolean!
+  createNews(input: CreateNewsInput!): NewsType!
+  updateNews(id: Int!, input: UpdateNewsInput!): NewsType!
+  deleteNews(id: Int!): Boolean!
+  createCollection(input: CreateCollectionInput!): CollectionType!
+  deleteCollection(id: Int!): Boolean!
+  addSongToCollection(collectionId: Int!, songId: Int!): Boolean!
+}
+
+input CreateAlbumInput {
+  title: String!
+  artistId: Int!
+  type: AlbumType!
+  length: Int!
+  dropDate: DateTime!
+}
+
+input UpdateAlbumTitleInput {
+  id: Int!
+  name: String!
+}
+
+input CreateSongInput {
+  title: String!
+  artistId: Int!
+  albumId: Int!
+  duration: Int!
+  listens: Int!
+  path: String!
+}
+
+input UpdateSongInput {
+  title: String
+  duration: Int
+  listens: Int
+  path: String
+}
+
+input CreateUserInput {
+  nickname: String!
+  id: String!
+}
+
+input CreateNewsInput {
+  userId: String!
+  header: String!
+  text: String!
+  pictureUrl: String!
+}
+
+input UpdateNewsInput {
+  header: String
+  text: String
+  pictureUrl: String
+}
+
+input CreateCollectionInput {
+  name: String!
+}

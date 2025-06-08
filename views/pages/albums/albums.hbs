@@ -1,0 +1,14 @@
+<h1>{{title}}</h1>
+
+<ul>
+  {{#each albums}}
+    <li style="margin-bottom: 20px;">
+      <h2>{{this.title}} ({{this.type}})</h2>
+      <p>Artist: {{this.artist.name}} {{this.artist.surname}}</p>
+      <p>Length: {{this.length}} min</p>
+      <p>Drop Date: {{this.dropDate}}</p>
+      <a href="/albums/{{this.id}}">View Details</a>
+    </li>
+  {{/each}}
+</ul>
+

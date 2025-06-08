@@ -1,0 +1,28 @@
+{{!-- auth-layout.hbs --}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>{{title}}</title>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+  <script src="/scripts/login.js" defer></script>
+  <script src="/scripts/registration.js" defer></script>
+  <style>
+    body {
+      background: black;
+    }
+  </style>
+</head>
+<body>
+<header class="page-header">
+  <h1 id="page-name">{{title}}</h1>
+</header>
+<div class="auth-container">
+  <div class="auth-box">
+    <h2>{{authType}}</h2>
+    {{{body}}}
+  </div>
+</div>
+</body>
+</html>

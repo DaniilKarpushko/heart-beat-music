@@ -1,0 +1,14 @@
+<h1>{{collection.name}}</h1>
+<p><strong>Rating:</strong> {{collection.rating}}</p>
+
+<h3>Songs in Collection:</h3>
+<ul>
+  {{#each collection.CollectionSong}}
+    <li style="margin-bottom: 10px;">
+      <strong>{{this.song.title}}</strong> by {{this.song.artist.name}} {{this.song.artist.surname}}
+      <span>({{this.song.duration}}s)</span>
+    </li>
+  {{/each}}
+</ul>
+
+<a href="/collections">← Back to Collections</a>

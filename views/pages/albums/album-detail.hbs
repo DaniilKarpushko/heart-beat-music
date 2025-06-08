@@ -1,0 +1,14 @@
+<h1>{{album.title}} – {{album.type}}</h1>
+
+<p><strong>Artist:</strong> {{album.artist.nickname}}</p>
+<p><strong>Length:</strong> {{album.length}} min</p>
+<p><strong>Drop Date:</strong> {{album.dropDate}}</p>
+
+<h3>Songs</h3>
+<ul>
+  {{#each album.songs}}
+    <li>{{this.title}} – Duration: {{this.duration}}s</li>
+  {{/each}}
+</ul>
+
+<a href="/albums">← Back to Albums</a>

@@ -1,0 +1,136 @@
+{{!-- adminMain --}}
+{{#> adminLayout}}
+  <div class="admin-container">
+    <h1>Админ-панель</h1>
+
+    <section class="section">
+      <h2>Create album</h2>
+      <form id="createAlbumForm">
+        <input id="albumTitle" type="text" placeholder="album title">
+        <input id="artistId" type="text" placeholder="artist Id">
+        <select id="albumType">
+          <option>ALBUM</option>
+          <option>SINGLE</option>
+        </select>
+        <input id="albumLength" type="number" placeholder="length">
+        <input id="releaseDate" type="date">
+        <button type="submit">Add</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Create song</h2>
+      <form id="createSongForm">
+        <input id="songTitle" type="text" placeholder="title">
+        <input id="songPath" type="file" placeholder="path">
+        <input id="songArtistId" type="number" placeholder="artist Id">
+        <input id="songAlbumId" type="number" placeholder="album Id">
+        <input id="songDuration" type="number" placeholder="duration">
+        <button type="submit">Add</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Remove album</h2>
+      <form id="removeAlbumForm">
+        <input id="albumId" type="number" placeholder="ID песни">
+        <button type="submit">Remove</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Remove song</h2>
+      <form id="removeSongForm">
+        <input id="songId" type="number" placeholder="Id">
+        <button type="submit">Remove</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Create artist</h2>
+      <form id="createArtistForm">
+        <input id="artistName" type="text" placeholder="name">
+        <input id="artistSurname" type="text" placeholder="surname">
+        <input id="artistNickname" type="text" placeholder="nickname">
+        <button type="submit">Create</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Remove artist</h2>
+      <form id="removeArtistForm">
+        <input id="artistId" type="number" placeholder="Id">
+        <button type="submit">Remove</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Change user role</h2>
+      <form id="addUserRoleForm">
+        <input id="userId" type="text" placeholder="id">
+        <select id="roleType">
+          <option>admin</option>
+          <option>writer</option>
+          <option>user</option>
+        </select>
+        <select id="action">
+          <option>add</option>
+          <option>remove</option>
+        </select>
+        <button type="submit">Change</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Delete user</h2>
+      <form id="deleteUserForm">
+        <input id="userId" type="text" placeholder="Id">
+        <button type="submit">Delete</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Create collection</h2>
+      <form id="createCollectionForm">
+        <input id="collectionName" type="text" placeholder="collection name">
+        <button type="submit">Create</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Add song to collection</h2>
+      <form id="addCollectionForm">
+        <input id="collectionId" type="number" placeholder="collection ID">
+        <input id="collectionSongId" type="number" placeholder="song ID">
+        <button type="submit">Add</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Remove collection</h2>
+      <form id="removeCollectionForm">
+        <input id="removeCollectionId" type="number" placeholder="collection ID">
+        <button type="submit">Remove</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Add limiter to IP</h2>
+      <form id="addLimiterToIPForm">
+        <input id="addLimiter" name="ip" type="text" placeholder="IP address">
+        <button type="submit">Add</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Remove limiter from IP</h2>
+      <form id="removeLimiterFromIPForm">
+        <input id="removeLimiter" name="ip" type="text" placeholder="IP address">
+        <button type="submit">Remove</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Add limiter for user</h2>
+      <form id="blockUserLimiterForm">
+        <input name="userId" placeholder="User ID">
+        <button type="submit">Block user</button>
+      </form>
+    </section>
+    <section class="section">
+      <h2>Delete limiter for user</h2>
+      <form id="unblockUserLimiterForm">
+        <input name="userId" placeholder="User ID">
+        <button type="submit">Unblock user</button>
+      </form>
+    </section>
+
+  </div>
+{{/adminLayout}}

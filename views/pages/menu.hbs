@@ -1,0 +1,57 @@
+{{!-- menu.hbs --}}
+{{#> layout}}
+  <audio src="/music/dior.mp3" id="audio"></audio>
+  <div>
+    <div class="d-flex justify-content-center bg-black p-0 m-0 w-100">
+      <div class="card w-25 m-3">
+        <div class="card-body">
+          <h5 class="card-title text-center default-font-size">Player</h5>
+          <h6 class="card-title text-center default-font-size" id="songName">---</h6>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item p-0">
+              <div class="song-slider text-center w-100">
+                <label>
+                  <input type="range" value="0" class="seek-bar border-black w-100" id="songTimeBar">
+                </label>
+              </div>
+            </li>
+            <li class="list-group-item justify-content-center align-items-center">
+              <div class=" w-100 justify-content-between p-0">
+                <button class="styled-btn" style="font-size: 0.5rem" id="prevButton">Prev</button>
+                <button class="styled-btn" style="font-size: 0.5rem" id="playButton">Play</button>
+                <button class="styled-btn" style="font-size: 0.5rem" id="nextButton">Next</button>
+                <button class="styled-btn" style="font-size: 0.5rem" id="likeButton">Like</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3 class="text-center">News</h3>
+      <div class="container mb-1">
+        <div class="row row-cols-3" id="newsContainer"></div>
+      </div>
+      <div class="border-top border-2 border-black" id="newsFormContainer">
+        <form class="w-50 mx-auto" id="newsForm">
+          <div class="mb-3">
+            <label for="newsTitle" class="form-label">Заголовок</label>
+            <input type="text" class="form-control" id="newsTitle" placeholder="Title">
+          </div>
+          <div class="mb-3">
+            <label for="newsTextarea" class="form-label">Новость</label>
+            <textarea class="form-control" maxlength="500" id="newsTextarea" rows="3"></textarea>
+          </div>
+          <div class="input-group mb-3">
+            <input type="file" class="form-control" id="newsImage">
+            <label class="input-group-text" for="newsImage">Загрузка</label>
+          </div>
+          <div class="justify-content-between" id="button-news-container">
+            <button class="styled-btn" style="font-size: 0.7rem" type="submit" id="addNews">Add</button>
+            <button class="styled-btn" style="font-size: 0.7rem" type="button" id="loadNews">Load</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{{/layout}}

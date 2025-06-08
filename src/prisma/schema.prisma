@@ -1,0 +1,110 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["views"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgres://avnadmin:AVNS_OMRejRrwObVi20e0yGB@pg-18332a5e-heart-beat-site.e.aivencloud.com:28430/defaultdb?sslmode=require"
+}
+
+model Artist {
+  id       Int     @id @default(autoincrement())
+  name     String  @db.VarChar(100)
+  surname  String  @db.VarChar(100)
+  nickname String? @db.VarChar(100)
+  albums   Album[]
+  songs    Song[]
+}
+
+model Album {
+  id       Int       @id @default(autoincrement())
+  title    String    @db.VarChar(100)
+  artistId Int
+  type     AlbumType
+  dropDate DateTime
+  artist   Artist    @relation(fields: [artistId], references: [id], onDelete: Cascade)
+  songs    Song[]
+}
+
+model Song {
+  id             Int              @id @default(autoincrement())
+  title          String           @db.VarChar(50)
+  artistId       Int
+  albumId        Int?
+  duration       Int
+  listens        Int
+  path           String           @db.VarChar(300)
+  CollectionSong CollectionSong[]
+  album          Album?           @relation(fields: [albumId], references: [id])
+  artist         Artist           @relation(fields: [artistId], references: [id], onDelete: Cascade)
+  UserSong       UserSong[]
+}
+
+model User {
+  id       String     @id @db.VarChar(128)
+  nickname String     @unique @db.VarChar(70)
+  Comment  Comment[]
+  News     News[]
+  UserSong UserSong[]
+}
+
+model Comment {
+  id     Int    @id @default(autoincrement())
+  userId String
+  newsId Int
+  text   String
+  news   News   @relation(fields: [newsId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model News {
+  id         Int       @id @default(autoincrement())
+  writerId   String
+  header     String    @db.VarChar(100)
+  text       String
+  pictureUrl String
+  date       DateTime
+  Comment    Comment[]
+  writer     User      @relation(fields: [writerId], references: [id], onDelete: Cascade)
+}
+
+model Collection {
+  id             Int              @id @default(autoincrement())
+  name           String           @unique @db.VarChar(50)
+  rating         Float
+  CollectionSong CollectionSong[]
+}
+
+model CollectionSong {
+  collectionId Int
+  songId       Int
+  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  song         Song       @relation(fields: [songId], references: [id], onDelete: Cascade)
+
+  @@id([collectionId, songId])
+}
+
+model UserSong {
+  userId String
+  songId Int
+  song   Song   @relation(fields: [songId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, songId])
+}
+
+view ArtistRating {
+  id       Int    @unique
+  name     String @db.VarChar(100)
+  surname  String @db.VarChar(100)
+  nickname String @db.VarChar(100)
+  rating   BigInt
+
+  @@map("ArtistRatings")
+}
+
+enum AlbumType {
+  ALBUM
+  SINGLE
+}

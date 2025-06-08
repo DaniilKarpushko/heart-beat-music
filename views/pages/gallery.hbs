@@ -1,0 +1,11 @@
+{{!-- gallery.hbs --}}
+{{#> layout}}
+  <div class="main-gallery-info"></div>
+  <div class="main-gallery">
+    {{#each images}}
+      <div class="main-gallery-img-container">
+        <img src="{{this}}" alt="Gallery image">
+      </div>
+    {{/each}}
+  </div>
+{{/layout}}
